@@ -1,11 +1,8 @@
 ----------------------------------------
-title: BUDT758D Assignment 2 Vishal Vindyala
+title: Vsualization in R Vishal
 output: html_document or pdf_document
 -----------------------------------------
 
-## BUDT758D Assignment 2:	R Charts
-## Points:	60
-### Submission Deadline:	Tuesday March 8, 2022 at 11:55pm
 
 ```{r setup, include=FALSE}
 library(tidyverse)
@@ -31,16 +28,8 @@ Make sure to change the axis titles, chart titles, colors, size, font, legend lo
 
 You must turn in a well-formatted HTML or PDF output file. To do so, please click on the Knit button at the top with the wool ball icon, then choose to kint to HTML/PDF.
 
-### Q1. Explore the distribution of overall wins. (10 points)
-a)	Create a boxplot that examines the distribution of overall wins. (2 points)
+Explore the distribution of overall wins
 
-b)	Add points of overall wins using the geom_jitter function. (2 points)
-
-c)	Add a general title to your chart such as “Boxplot of overall wins”; add a text box to describe your main finding in the chart using the annotate function. (3 points)
-
-d)	Improve your chart to make it clear and ready for presenting to your readers. (3 points)
-
-(You only need to present a single chart with all the required information mentioned above)
 
 ```{r}
 ggplot(umd_data, aes(y=OverallWins,x=0))+
@@ -63,10 +52,10 @@ ggplot(umd_data, aes(y=OverallWins,x=0))+
 
 ```
 
-### Q2. Explore the correlations between numeric variables. (10 points)
-a)	Create a correlations heat map for the following variables: OverallWins, ConferenceWins, SRS, SOS, PTS, and Opponents PTS. (3 points) 
+Explore the correlations between numeric variables
+a)	Create a correlations heat map for the following variables: OverallWins, ConferenceWins, SRS, SOS, PTS, and Opponents PTS. 
 
-b)	Improve your chart to make it clear and ready for presenting to your readers. (5 points)
+b)	Improve your chart to make it clear and ready for presenting to your readers. 
 
 ```{r}
 numeric_variables <- umd_data %>%
@@ -101,16 +90,15 @@ heatmap1 +
 
 ```
 
-c)	Which variables are positively correlated with overall wins? Which variable is most correlated with overall wins?  (2 points)
+c)	Which variables are positively correlated with overall wins? Which variable is most correlated with overall wins?  
 
     #### Answer here: Overall Wins is highly(most) correlated with SRS.Conference Wins,SRS,SOS are positively correlated with Overall wins
 
-### Q3. Explore the relationship between overall wins and conference wins. (12 points)
-a)	Create a scatter plot of the overall wins and conference wins; use different colors or shapes to denote difference conferences (ACC, Big Ten and Southern). (3 points)
+ Explore the relationship between overall wins and conference wins
+a)	Create a scatter plot of the overall wins and conference wins; use different colors or shapes to denote difference conferences (ACC, Big Ten and Southern)
+b)	Add a single trend line to the chart. Hint: the mapping of color or shape needs to be created in the geom function instead of ggplot.
 
-b)	Add a single trend line to the chart. Hint: the mapping of color or shape needs to be created in the geom function instead of ggplot. (3 points)
-
-c)	Improve your chart to make it clear and ready for presenting to your readers. (3 points)
+c)	Improve your chart to make it clear and ready for presenting to your readers.
 
 ```{r}
 
@@ -132,7 +120,7 @@ umd_data %>%
     scale_x_continuous(breaks = seq(0,40,5))
 
 
-####d)	What pattern do you notice? (3 points)
+####d)	What pattern do you notice? 
 
     #### Answer here: On average playing in the ACC resulted in higher overall wins and lower conference wins and the vice versa is true for Southern
 
@@ -141,10 +129,10 @@ umd_data %>%
 
 
 
-### Q4. Explore the change of overall wins over years. (10 points)
-b)	Highlight the point with the highest wins (Hint: you could use the geom_point functio); add a data label above the point to show the value. (3 points)
-c)	Add a vertical line at x = 2010. (2 points)
-d)	Improve your chart to make it clear and ready for presenting to your readers. (3 points)
+### Explore the change of overall wins over years.
+b)	Highlight the point with the highest wins (Hint: you could use the geom_point functio); add a data label above the point to show the value. 
+c)	Add a vertical line at x = 2010. 
+d)	Improve your chart to make it clear and ready for presenting to your readers. 
 
 
 
@@ -177,12 +165,10 @@ OverallWins_chart +
 
 ```
 
-######Q5. Explore the number of seasons that each coach makes it to the NCAA tournament and the number of seasons he/she does not. (15 points)
-(a)	Create a stacked bar chart to show the number of seasons that each coach makes it to the NCAA tournament and the number of seasons he/she does not. Hint: create a new variable “NCAA” that indicates if the variable “NCAA Tournament” is NA or not. (4 points)
+######Explore the number of seasons that each coach makes it to the NCAA tournament and the number of seasons he/she does not. 
+(a)	Create a stacked bar chart to show the number of seasons that each coach makes it to the NCAA tournament and the number of seasons he/she does not.
 
-(b)	Order the coaches based on their first year of serving as the coach at UMD. Hint: group by coach and then create a new variable first_year which is the minimum of the “Year” variable. Reorder “Coach” based on this variable. Then, group by Coach and NCAA and calculate the number of seasons within each group. (4 points)
-
-(c)	Improve your chart to make it clear and ready for presenting to your readers. (4 points)
+(b)	Order the coaches based on their first year of serving as the coach at UMD. 
 
 ```{r}
 umd_data = read_csv('UMDBasketball2020.csv')
@@ -250,9 +236,7 @@ clusterbar1 <- clusterbar +
 clusterbar1
 ```
 
-(d)	Which coach is the best in terms of the number of seasons that he/she makes it to the NCAA? (3 points)
+(d)	Which coach is the best in terms of the number of seasons that he/she makes it to the NCAA? 
 
     #### Answer here: Gary Williams has the highest appearances in the NCAA
 
-### Quality of code (3 points)
-Your code needs to be clean, clear, and easy to follow.
